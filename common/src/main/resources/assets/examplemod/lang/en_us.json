@@ -1,4 +1,6 @@
 {
   "item.examplemod.iron_stick": "Iron Stick",
-  "itemGroup.examplemod.tab": "Example Mod Items"
+  "block.examplemod.new_dirt": "New Dirt",
+  "itemGroup.examplemod.items": "Example Mod Items",
+  "itemGroup.examplemod.blocks": "Example Mod Blocks"
 }

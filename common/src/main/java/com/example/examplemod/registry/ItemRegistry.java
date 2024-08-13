@@ -21,16 +21,4 @@ public class ItemRegistry
     public static Item.Properties getItemProperties() {
         return new Item.Properties();
     }
-
-
-    public static final RegistrationProvider<CreativeModeTab> CREATIVE_MODE_TABS = RegistrationProvider.get(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
-    public static final RegistryObject<CreativeModeTab, CreativeModeTab> TAB = CREATIVE_MODE_TABS.register(Constants.MOD_ID + "_tab", () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(IRON_STICK.get()))
-            .displayItems(
-                    (itemDisplayParameters, output) -> {
-                        output.accept(IRON_STICK.get());
-                    }).title(Component.translatable("itemGroup." + Constants.MOD_ID + ".tab"))
-            .build());
-
-
 }
