@@ -36,5 +36,3 @@ neoForge {
         }
     }
 }
-
-sourceSets.main.resources { srcDir file('../common/src/generated/resources').getAbsolutePath() }
