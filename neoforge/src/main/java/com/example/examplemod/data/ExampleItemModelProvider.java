@@ -15,5 +15,6 @@ public class ExampleItemModelProvider extends ItemModelProvider
     @Override
     protected void registerModels() {
         basicItem(ItemRegistry.IRON_STICK.get());
+        basicItem(ItemRegistry.TOMATO.get());
     }
 }

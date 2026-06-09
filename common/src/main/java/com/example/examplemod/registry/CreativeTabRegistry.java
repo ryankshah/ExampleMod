@@ -19,6 +19,7 @@ public class CreativeTabRegistry
             .displayItems(
                     (itemDisplayParameters, output) -> {
                         output.accept(ItemRegistry.IRON_STICK.get());
+                        output.accept(ItemRegistry.TOMATO.get());
                     }).title(Component.translatable("itemGroup." + Constants.MOD_ID + ".items"))
             .build());
 
