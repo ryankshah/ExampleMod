@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import com.example.examplemod.network.PacketRegistration;
 import com.example.examplemod.platform.Services;
 import com.example.examplemod.registry.*;
 import net.minecraft.core.registries.BuiltInRegistries;
