@@ -1,6 +1,8 @@
 package com.example.examplemod;
 
 
+import com.example.examplemod.config.ExampleConfig;
+import com.example.examplemod.config.NeoForgeExampleConfig;
 import com.example.examplemod.data.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -8,7 +10,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -20,6 +24,8 @@ import java.util.concurrent.CompletableFuture;
 public class ExampleMod
 {
     public ExampleMod(IEventBus eventBus) {
+        ExampleConfig.setInstance(new NeoForgeExampleConfig());
+        ModLoadingContext.get().getActiveContainer().registerConfig(ModConfig.Type.COMMON, NeoForgeExampleConfig.SPEC);
         CommonClass.init();
         eventBus.addListener(ExampleMod::gatherData);
     }
