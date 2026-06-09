@@ -1,10 +1,7 @@
 package com.example.examplemod;
 
 
-import com.example.examplemod.data.ExampleBlockLootTableProvider;
-import com.example.examplemod.data.ExampleBlockStateProvider;
-import com.example.examplemod.data.ExampleItemModelProvider;
-import com.example.examplemod.data.ExampleRecipeProvider;
+import com.example.examplemod.data.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -44,6 +41,12 @@ public class ExampleMod
                             )), registries));
             generator.addProvider(true,
                     new ExampleRecipeProvider(output, registries));
+
+            ExampleBlockTagsProvider blockTagsProvider = generator.addProvider(true,
+                    new ExampleBlockTagsProvider(output, registries, existingFileHelper));
+            generator.addProvider(true,
+                    new ExampleItemTagsProvider(output, registries,
+                            blockTagsProvider.contentsGetter(), existingFileHelper));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }
