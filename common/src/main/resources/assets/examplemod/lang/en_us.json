@@ -13,5 +13,6 @@
   "block.examplemod.new_dirt": "New Dirt",
   "block.examplemod.example_be_block": "Example Block Entity Block",
   "itemGroup.examplemod.items": "Example Mod Items",
-  "itemGroup.examplemod.blocks": "Example Mod Blocks"
+  "itemGroup.examplemod.blocks": "Example Mod Blocks",
+  "subtitles.examplemod.example_ambient": "Example ambient sound"
 }

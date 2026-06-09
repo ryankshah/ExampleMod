@@ -53,6 +53,9 @@ public class ExampleMod
             generator.addProvider(true,
                     new ExampleItemTagsProvider(output, registries,
                             blockTagsProvider.contentsGetter(), existingFileHelper));
+
+            generator.addProvider(true,
+                    new ExampleSoundDefinitionsProvider(output, existingFileHelper));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }
