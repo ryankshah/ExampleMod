@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "examplemod:new_dirt"
+  },
+  "result": {
+    "count": 1,
+    "id": "minecraft:coarse_dirt"
+  }
+}

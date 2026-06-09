@@ -4,6 +4,7 @@ package com.example.examplemod;
 import com.example.examplemod.data.ExampleBlockLootTableProvider;
 import com.example.examplemod.data.ExampleBlockStateProvider;
 import com.example.examplemod.data.ExampleItemModelProvider;
+import com.example.examplemod.data.ExampleRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -41,6 +42,8 @@ public class ExampleMod
                                     ExampleBlockLootTableProvider::new,
                                     LootContextParamSets.BLOCK
                             )), registries));
+            generator.addProvider(true,
+                    new ExampleRecipeProvider(output, registries));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:dirt"
+    },
+    {
+      "item": "examplemod:iron_stick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "examplemod:new_dirt"
+  }
+}

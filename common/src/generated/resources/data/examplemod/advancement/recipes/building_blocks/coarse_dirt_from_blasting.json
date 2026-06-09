@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_new_dirt": {
+      "conditions": {
+        "items": [
+          {
+            "items": "examplemod:new_dirt"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "examplemod:coarse_dirt_from_blasting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_new_dirt"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "examplemod:coarse_dirt_from_blasting"
+    ]
+  }
+}
