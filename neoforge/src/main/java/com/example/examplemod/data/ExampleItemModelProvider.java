@@ -28,6 +28,10 @@ public class ExampleItemModelProvider extends ItemModelProvider
         handheldItem(ItemRegistry.EXAMPLE_AXE.get());
         handheldItem(ItemRegistry.EXAMPLE_SHOVEL.get());
         handheldItem(ItemRegistry.EXAMPLE_HOE.get());
+        basicItem(ItemRegistry.EXAMPLE_HELMET.get());
+        basicItem(ItemRegistry.EXAMPLE_CHESTPLATE.get());
+        basicItem(ItemRegistry.EXAMPLE_LEGGINGS.get());
+        basicItem(ItemRegistry.EXAMPLE_BOOTS.get());
     }
 
     public ItemModelBuilder handheldItem(Item item) {

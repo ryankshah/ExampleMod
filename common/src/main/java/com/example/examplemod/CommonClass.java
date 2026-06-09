@@ -1,6 +1,7 @@
 package com.example.examplemod;
 
 import com.example.examplemod.platform.Services;
+import com.example.examplemod.registry.ArmourMaterialRegistry;
 import com.example.examplemod.registry.BlockRegistry;
 import com.example.examplemod.registry.CreativeTabRegistry;
 import com.example.examplemod.registry.ItemRegistry;
@@ -10,6 +11,7 @@ import net.minecraft.world.item.Items;
 public class CommonClass
 {
     public static void init() {
+        ArmourMaterialRegistry.init();
         ItemRegistry.init();
         BlockRegistry.init();
         CreativeTabRegistry.init();

@@ -6,6 +6,10 @@
   "item.examplemod.example_axe": "Example Axe",
   "item.examplemod.example_shovel": "Example Shovel",
   "item.examplemod.example_hoe": "Example Hoe",
+  "item.examplemod.example_helmet": "Example Helmet",
+  "item.examplemod.example_chestplate": "Example Chestplate",
+  "item.examplemod.example_leggings": "Example Leggings",
+  "item.examplemod.example_boots": "Example Boots",
   "block.examplemod.new_dirt": "New Dirt",
   "itemGroup.examplemod.items": "Example Mod Items",
   "itemGroup.examplemod.blocks": "Example Mod Blocks"

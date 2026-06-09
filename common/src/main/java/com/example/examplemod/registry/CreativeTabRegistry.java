@@ -25,6 +25,10 @@ public class CreativeTabRegistry
                         output.accept(ItemRegistry.EXAMPLE_AXE.get());
                         output.accept(ItemRegistry.EXAMPLE_SHOVEL.get());
                         output.accept(ItemRegistry.EXAMPLE_HOE.get());
+                        output.accept(ItemRegistry.EXAMPLE_HELMET.get());
+                        output.accept(ItemRegistry.EXAMPLE_CHESTPLATE.get());
+                        output.accept(ItemRegistry.EXAMPLE_LEGGINGS.get());
+                        output.accept(ItemRegistry.EXAMPLE_BOOTS.get());
                     }).title(Component.translatable("itemGroup." + Constants.MOD_ID + ".items"))
             .build());
 

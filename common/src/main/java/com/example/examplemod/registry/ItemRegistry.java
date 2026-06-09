@@ -4,6 +4,7 @@ import com.example.examplemod.Constants;
 import com.example.examplemod.registration.RegistrationProvider;
 import com.example.examplemod.registration.RegistryObject;
 import com.example.examplemod.util.ExampleToolTier;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -44,6 +45,30 @@ public class ItemRegistry
 
     public static final RegistryObject<Item, HoeItem> EXAMPLE_HOE = ITEMS.register("example_hoe",
             () -> new HoeItem(ExampleToolTier.EXAMPLE, getItemProperties()));
+
+    public static final RegistryObject<Item, ArmorItem> EXAMPLE_HELMET =
+            ITEMS.register("example_helmet", () -> new ArmorItem(
+                    Holder.direct(ArmourMaterialRegistry.EXAMPLE.get()),
+                    ArmorItem.Type.HELMET,
+                    getItemProperties().stacksTo(1)));
+
+    public static final RegistryObject<Item, ArmorItem> EXAMPLE_CHESTPLATE =
+            ITEMS.register("example_chestplate", () -> new ArmorItem(
+                    Holder.direct(ArmourMaterialRegistry.EXAMPLE.get()),
+                    ArmorItem.Type.CHESTPLATE,
+                    getItemProperties().stacksTo(1)));
+
+    public static final RegistryObject<Item, ArmorItem> EXAMPLE_LEGGINGS =
+            ITEMS.register("example_leggings", () -> new ArmorItem(
+                    Holder.direct(ArmourMaterialRegistry.EXAMPLE.get()),
+                    ArmorItem.Type.LEGGINGS,
+                    getItemProperties().stacksTo(1)));
+
+    public static final RegistryObject<Item, ArmorItem> EXAMPLE_BOOTS =
+            ITEMS.register("example_boots", () -> new ArmorItem(
+                    Holder.direct(ArmourMaterialRegistry.EXAMPLE.get()),
+                    ArmorItem.Type.BOOTS,
+                    getItemProperties().stacksTo(1)));
 
     public static Item.Properties getItemProperties() {
         return new Item.Properties();
