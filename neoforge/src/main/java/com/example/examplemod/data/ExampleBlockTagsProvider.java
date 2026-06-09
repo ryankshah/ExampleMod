@@ -22,7 +22,8 @@ public class ExampleBlockTagsProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(BlockRegistry.NEW_DIRT.get());
+                .add(BlockRegistry.NEW_DIRT.get())
+                .add(BlockRegistry.EXAMPLE_BE_BLOCK.get());
 
         tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(BlockRegistry.NEW_DIRT.get());

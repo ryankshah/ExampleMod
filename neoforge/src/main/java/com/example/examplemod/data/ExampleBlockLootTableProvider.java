@@ -19,6 +19,7 @@ public class ExampleBlockLootTableProvider extends BlockLootSubProvider {
     @Override
     protected void generate() {
         dropSelf(BlockRegistry.NEW_DIRT.get());
+        dropSelf(BlockRegistry.EXAMPLE_BE_BLOCK.get());
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.examplemod.registry;
 
 import com.example.examplemod.Constants;
+import com.example.examplemod.block.ExampleBlockEntityBlock;
 import com.example.examplemod.registration.RegistrationProvider;
 import com.example.examplemod.registration.RegistryObject;
 import net.minecraft.core.registries.Registries;
@@ -19,6 +20,10 @@ public class BlockRegistry
     public static final RegistrationProvider<Block> BLOCKS = RegistrationProvider.get(Registries.BLOCK, Constants.MOD_ID);
 
     public static final RegistryObject<Block, Block> NEW_DIRT = registerBlock("new_dirt", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DIRT)));
+
+    public static final RegistryObject<Block, ExampleBlockEntityBlock> EXAMPLE_BE_BLOCK =
+            registerBlock("example_be_block",
+                    () -> new ExampleBlockEntityBlock(BlockBehaviour.Properties.of().strength(1.5f)));
 
     public static <T extends Block> RegistryObject<Block, T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block, b -> () -> new BlockItem(b.get(), ItemRegistry.getItemProperties()));

@@ -1,4 +1,7 @@
-// 1.21	2024-08-14T06:35:56.860421	Block States: examplemod
+// 1.21	2026-06-09T17:40:19.2883237	Block States: examplemod
+1175b2693c6ad0a5679413202334409453e59a25 assets/examplemod/blockstates/example_be_block.json
 2089b4d4bfea2767ee28a2aee09844463e4f6ddc assets/examplemod/blockstates/new_dirt.json
+52fabfe571338807defff5295b23da677bf92de8 assets/examplemod/models/block/example_be_block.json
 2d546e3628cd2a71bbeea320037d819a2b90829f assets/examplemod/models/block/new_dirt.json
+28b22647a8c96fd509b34259cbce2c720e4be58e assets/examplemod/models/item/example_be_block.json
 e59f3fa28c9bd3e61874bb89da5c5699eed8c9ee assets/examplemod/models/item/new_dirt.json

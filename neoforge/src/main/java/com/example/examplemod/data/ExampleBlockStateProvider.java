@@ -17,6 +17,7 @@ public class ExampleBlockStateProvider extends BlockStateProvider
     @Override
     protected void registerStatesAndModels() {
         simpleBlockWithItem(BlockRegistry.NEW_DIRT.get(), cubeAll(BlockRegistry.NEW_DIRT.get()));
+        simpleBlockWithItem(BlockRegistry.EXAMPLE_BE_BLOCK.get(), cubeAll(BlockRegistry.EXAMPLE_BE_BLOCK.get()));
     }
 
     private String name(Block block) {

@@ -21,6 +21,7 @@
     },
     "mixins": [
     ],
+    "accessWidener": "examplemod.accesswidener",
     "depends": {
         "fabricloader": ">=${fabric_loader_version}",
         "fabric-api": "*",

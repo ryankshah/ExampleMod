@@ -37,6 +37,7 @@ public class CreativeTabRegistry
             .displayItems(
                     (itemDisplayParameters, output) -> {
                         output.accept(BlockRegistry.NEW_DIRT.get());
+                        output.accept(BlockRegistry.EXAMPLE_BE_BLOCK.get());
                     }).title(Component.translatable("itemGroup." + Constants.MOD_ID + ".blocks"))
             .build());
 }
