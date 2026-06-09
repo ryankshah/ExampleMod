@@ -1,9 +1,14 @@
 package com.example.examplemod.block;
 
 import com.example.examplemod.blockentity.ExampleBlockEntity;
+import com.example.examplemod.network.ExampleS2CPacket;
 import com.example.examplemod.registry.BlockEntityRegistry;
 import com.mojang.serialization.MapCodec;
+import commonnetwork.api.Dispatcher;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -11,6 +16,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
@@ -36,6 +42,13 @@ public class ExampleBlockEntityBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ExampleBlockEntity(pos, state);
+    }
+
+    @Override
+    protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        if(!pPlayer.level().isClientSide)
+            Dispatcher.sendToClient(new ExampleS2CPacket(42, "hello"), (ServerPlayer) pPlayer);
+        return super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);
     }
 
     @Override

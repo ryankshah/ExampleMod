@@ -36,3 +36,11 @@ neoForge {
         }
     }
 }
+
+repositories {
+    maven { url = "https://maven.blamejared.com" }
+}
+
+dependencies {
+    implementation "mysticdrew:common-networking-neoforge:1.0.21-1.21.1"
+}
