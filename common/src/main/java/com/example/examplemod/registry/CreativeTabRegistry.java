@@ -20,6 +20,11 @@ public class CreativeTabRegistry
                     (itemDisplayParameters, output) -> {
                         output.accept(ItemRegistry.IRON_STICK.get());
                         output.accept(ItemRegistry.TOMATO.get());
+                        output.accept(ItemRegistry.EXAMPLE_SWORD.get());
+                        output.accept(ItemRegistry.EXAMPLE_PICKAXE.get());
+                        output.accept(ItemRegistry.EXAMPLE_AXE.get());
+                        output.accept(ItemRegistry.EXAMPLE_SHOVEL.get());
+                        output.accept(ItemRegistry.EXAMPLE_HOE.get());
                     }).title(Component.translatable("itemGroup." + Constants.MOD_ID + ".items"))
             .build());
 

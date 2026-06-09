@@ -1,3 +1,8 @@
-// 1.21	2026-06-09T08:51:14.5685551	Item Models: examplemod
+// 1.21	2026-06-09T12:28:26.3142234	Item Models: examplemod
+80c9aad7518725696de1314f70c1de6b1453d00a assets/examplemod/models/item/example_axe.json
+17d9840645fe79f92b774228992c4554133d407f assets/examplemod/models/item/example_hoe.json
+976e0ff593e08cf05a790cb211ad645df0bbd777 assets/examplemod/models/item/example_pickaxe.json
+7d06ca2611f220c807c0c710d027b1cf51bb2603 assets/examplemod/models/item/example_shovel.json
+49f9c6c1f5a802cfc319537f93f2c85503b6fae0 assets/examplemod/models/item/example_sword.json
 e8240d6fe5bc19a4dd5875da08912289e89216a4 assets/examplemod/models/item/iron_stick.json
 e0561b3799e146068025bc6572079dd636c0f2ab assets/examplemod/models/item/tomato.json
