@@ -2,6 +2,7 @@ package com.example.examplemod.data;
 
 import com.example.examplemod.Constants;
 import com.example.examplemod.registry.BlockRegistry;
+import com.example.examplemod.registry.EntityRegistry;
 import com.example.examplemod.registry.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -40,5 +41,9 @@ public class ExampleLangProvider extends LanguageProvider {
         add("advancements.examplemod.get_iron_stick.description", "Pick up an Iron Stick.");
         add("advancements.examplemod.place_new_dirt.title",     "Breaking Ground");
         add("advancements.examplemod.place_new_dirt.description", "Place a New Dirt block.");
+
+
+        add(EntityRegistry.EXAMPLE_ENTITY.get(), "Example Entity");
+        add(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get(), "Example Entity Spawn Egg");
     }
 }

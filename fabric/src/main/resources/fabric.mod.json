@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "com.example.examplemod.ExampleMod"
+        ],
+        "client": [
+            "com.example.examplemod.client.ExampleModClient"
         ]
     },
     "mixins": [

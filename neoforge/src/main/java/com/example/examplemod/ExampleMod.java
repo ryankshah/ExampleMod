@@ -42,10 +42,14 @@ public class ExampleMod
             generator.addProvider(true, new ExampleBlockStateProvider(output, Constants.MOD_ID, existingFileHelper));
             generator.addProvider(true,
                     new LootTableProvider(output, Set.of(),
-                            List.of(new LootTableProvider.SubProviderEntry(
-                                    ExampleBlockLootTableProvider::new,
-                                    LootContextParamSets.BLOCK
-                            )), registries));
+                            List.of(
+                                    new LootTableProvider.SubProviderEntry(
+                                            ExampleBlockLootTableProvider::new,
+                                            LootContextParamSets.BLOCK),
+                                    new LootTableProvider.SubProviderEntry(
+                                            ExampleEntityLootProvider::new,
+                                            LootContextParamSets.ENTITY)
+                            ), registries));
             generator.addProvider(true,
                     new ExampleRecipeProvider(output, registries));
 

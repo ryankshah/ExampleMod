@@ -15,6 +15,7 @@ public class CommonClass
         BlockRegistry.init();
         BlockEntityRegistry.init();
         CreativeTabRegistry.init();
+        EntityRegistry.init();
         PacketRegistration.init();
     }
 }

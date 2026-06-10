@@ -2,8 +2,10 @@ package com.example.examplemod.data;
 
 import com.example.examplemod.Constants;
 import com.example.examplemod.registry.ItemRegistry;
+import net.minecraft.client.renderer.block.model.ItemModelGenerator;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
@@ -32,6 +34,10 @@ public class ExampleItemModelProvider extends ItemModelProvider
         basicItem(ItemRegistry.EXAMPLE_CHESTPLATE.get());
         basicItem(ItemRegistry.EXAMPLE_LEGGINGS.get());
         basicItem(ItemRegistry.EXAMPLE_BOOTS.get());
+
+        withExistingParent(
+                ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.getId().getPath(),
+                mcLoc("item/template_spawn_egg"));
     }
 
     public ItemModelBuilder handheldItem(Item item) {

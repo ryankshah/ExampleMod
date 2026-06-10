@@ -70,6 +70,11 @@ public class ItemRegistry
                     ArmorItem.Type.BOOTS,
                     getItemProperties().stacksTo(1)));
 
+    public static final RegistryObject<Item, Item> EXAMPLE_ENTITY_SPAWN_EGG =
+            ITEMS.register("example_entity_spawn_egg", () ->
+                    new SpawnEggItem(EntityRegistry.EXAMPLE_ENTITY.get(), 0x8B4513, 0x228B22,
+                            getItemProperties()));
+
     public static Item.Properties getItemProperties() {
         return new Item.Properties();
     }
