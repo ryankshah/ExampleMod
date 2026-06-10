@@ -5,6 +5,8 @@ import com.example.examplemod.config.ExampleConfig;
 import com.example.examplemod.config.NeoForgeExampleConfig;
 import com.example.examplemod.data.*;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
@@ -14,8 +16,10 @@ import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.common.data.AdvancementProvider;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 import java.util.List;
 import java.util.Set;
@@ -69,6 +73,14 @@ public class ExampleMod
             generator.addProvider(
                     event.includeClient(),
                     new ExampleLangProvider(output));
+
+            generator.addProvider(true,
+                    new DatapackBuiltinEntriesProvider(output, registries,
+                            new RegistrySetBuilder()
+                                    .add(Registries.CONFIGURED_FEATURE, ExampleWorldGenProvider::configuredFeatures)
+                                    .add(Registries.PLACED_FEATURE,     ExampleWorldGenProvider::placedFeatures)
+                                    .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ExampleWorldGenProvider::biomeModifiers),
+                            Set.of(Constants.MOD_ID)));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }

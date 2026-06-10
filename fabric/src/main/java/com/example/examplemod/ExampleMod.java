@@ -6,7 +6,10 @@ import com.example.examplemod.entity.ExampleEntity;
 import com.example.examplemod.event.CommonEvents;
 import com.example.examplemod.registry.EntityRegistry;
 import com.example.examplemod.registry.ItemRegistry;
+import com.example.examplemod.world.ExampleWorldGen;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -17,6 +20,7 @@ import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.levelgen.GenerationStep;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 
 public class ExampleMod implements ModInitializer
@@ -31,6 +35,11 @@ public class ExampleMod implements ModInitializer
 
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(entries ->
                 entries.accept(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get()));
+
+        BiomeModifications.addFeature(
+                BiomeSelectors.foundInOverworld(),
+                GenerationStep.Decoration.UNDERGROUND_ORES,
+                ExampleWorldGen.NEW_DIRT_ORE_PLACED);
     }
     private static void registerEvents() {
         // Player login
