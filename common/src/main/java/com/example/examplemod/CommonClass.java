@@ -10,6 +10,7 @@ public class CommonClass
 {
     public static void init() {
         ArmourMaterialRegistry.init();
+        ParticleRegistry.init();
         SoundRegistry.init();
         ItemRegistry.init();
         BlockRegistry.init();

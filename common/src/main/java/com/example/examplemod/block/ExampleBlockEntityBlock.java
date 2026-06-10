@@ -3,9 +3,11 @@ package com.example.examplemod.block;
 import com.example.examplemod.blockentity.ExampleBlockEntity;
 import com.example.examplemod.network.ExampleS2CPacket;
 import com.example.examplemod.registry.BlockEntityRegistry;
+import com.example.examplemod.registry.ParticleRegistry;
 import com.mojang.serialization.MapCodec;
 import commonnetwork.api.Dispatcher;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -46,8 +48,20 @@ public class ExampleBlockEntityBlock extends BaseEntityBlock {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
-        if(!pPlayer.level().isClientSide)
+        if(!pPlayer.level().isClientSide) {
             Dispatcher.sendToClient(new ExampleS2CPacket(42, "hello"), (ServerPlayer) pPlayer);
+            if (pLevel instanceof ServerLevel serverLevel) {
+                serverLevel.sendParticles(
+                        ParticleRegistry.SPARKLE.get(),
+                        pPos.getX() + 0.5, pPos.getY() + 1.0, pPos.getZ() + 0.5,
+                        15,      // count
+                        0.3,     // spread X
+                        0.2,     // spread Y
+                        0.3,     // spread Z
+                        0.05     // speed
+                );
+            }
+        }
         return super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);
     }
 
