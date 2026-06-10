@@ -14,5 +14,11 @@
   "block.examplemod.example_be_block": "Example Block Entity Block",
   "itemGroup.examplemod.items": "Example Mod Items",
   "itemGroup.examplemod.blocks": "Example Mod Blocks",
-  "subtitles.examplemod.example_ambient": "Example ambient sound"
+  "subtitles.examplemod.example_ambient": "Example ambient sound",
+  "advancements.examplemod.root.title": "Example Mod",
+  "advancements.examplemod.root.description": "Begin your journey with Example Mod.",
+  "advancements.examplemod.get_iron_stick.title": "A New Tool",
+  "advancements.examplemod.get_iron_stick.description": "Pick up an Iron Stick.",
+  "advancements.examplemod.place_new_dirt.title": "Breaking Ground",
+  "advancements.examplemod.place_new_dirt.description": "Place a New Dirt block."
 }

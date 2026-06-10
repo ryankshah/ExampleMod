@@ -1,0 +1,33 @@
+{
+  "parent": "examplemod:root",
+  "criteria": {
+    "has_iron_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "examplemod:iron_stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.examplemod.get_iron_stick.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "examplemod:iron_stick"
+    },
+    "title": {
+      "translate": "advancements.examplemod.get_iron_stick.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_iron_stick"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

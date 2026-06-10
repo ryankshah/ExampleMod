@@ -1,0 +1,35 @@
+{
+  "parent": "examplemod:root",
+  "criteria": {
+    "placed_new_dirt": {
+      "conditions": {
+        "location": [
+          {
+            "block": "examplemod:new_dirt",
+            "condition": "minecraft:block_state_property"
+          }
+        ]
+      },
+      "trigger": "minecraft:placed_block"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.examplemod.place_new_dirt.description"
+    },
+    "frame": "goal",
+    "icon": {
+      "count": 1,
+      "id": "examplemod:new_dirt"
+    },
+    "title": {
+      "translate": "advancements.examplemod.place_new_dirt.title"
+    }
+  },
+  "requirements": [
+    [
+      "placed_new_dirt"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -13,6 +13,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
+import net.neoforged.neoforge.common.data.AdvancementProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
@@ -56,6 +57,10 @@ public class ExampleMod
 
             generator.addProvider(true,
                     new ExampleSoundDefinitionsProvider(output, existingFileHelper));
+
+            generator.addProvider(
+                    event.includeServer(),
+                    new ExampleAdvancementProvider(output, registries, existingFileHelper));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }

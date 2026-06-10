@@ -1,0 +1,28 @@
+{
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "minecraft:textures/gui/advancements/backgrounds/stone.png",
+    "description": {
+      "translate": "advancements.examplemod.root.description"
+    },
+    "icon": {
+      "count": 1,
+      "id": "examplemod:iron_stick"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.examplemod.root.title"
+    }
+  },
+  "requirements": [
+    [
+      "impossible"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
