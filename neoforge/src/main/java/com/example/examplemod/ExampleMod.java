@@ -61,6 +61,10 @@ public class ExampleMod
             generator.addProvider(
                     event.includeServer(),
                     new ExampleAdvancementProvider(output, registries, existingFileHelper));
+
+            generator.addProvider(
+                    event.includeClient(),
+                    new ExampleLangProvider(output));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);
         }
