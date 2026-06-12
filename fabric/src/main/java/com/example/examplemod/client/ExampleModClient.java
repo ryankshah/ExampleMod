@@ -6,6 +6,8 @@ import com.example.examplemod.registry.EntityRegistry;
 import com.example.examplemod.registry.MenuRegistry;
 import com.example.examplemod.registry.ParticleRegistry;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
+import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -20,5 +22,11 @@ public class ExampleModClient implements ClientModInitializer {
                 ParticleRegistry.SPARKLE.get(), SparkleParticle.Provider::new);
 
         MenuScreens.register(MenuRegistry.EXAMPLE_MENU.get(), ExampleScreen::new);
+
+        ExampleKeyBindings.EXAMPLE_ACTION =
+                KeyBindingHelper.registerKeyBinding(ExampleKeyBindings.createExampleAction());
+
+        ClientTickEvents.END_CLIENT_TICK.register(client ->
+                ExampleKeyBindings.onClientTick());
     }
 }

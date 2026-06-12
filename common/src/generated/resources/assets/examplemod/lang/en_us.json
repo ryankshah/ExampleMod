@@ -23,5 +23,7 @@
   "item.examplemod.tomato": "Tomato",
   "itemGroup.examplemod.blocks": "Example Mod Blocks",
   "itemGroup.examplemod.items": "Example Mod Items",
+  "key.categories.examplemod": "Example Mod",
+  "key.examplemod.example_action": "Example Action",
   "subtitles.examplemod.example_ambient": "Example ambient sound"
 }

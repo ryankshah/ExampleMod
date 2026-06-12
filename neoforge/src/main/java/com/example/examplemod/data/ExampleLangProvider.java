@@ -44,6 +44,9 @@ public class ExampleLangProvider extends LanguageProvider {
 
         add("container.examplemod.example", "Example Container");
 
+        add("key.examplemod.example_action", "Example Action");
+        add("key.categories.examplemod", "Example Mod");
+
         add(EntityRegistry.EXAMPLE_ENTITY.get(), "Example Entity");
         add(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get(), "Example Entity Spawn Egg");
     }
