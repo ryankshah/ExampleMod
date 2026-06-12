@@ -6,6 +6,7 @@ import com.example.examplemod.entity.ExampleEntity;
 import com.example.examplemod.event.CommonEvents;
 import com.example.examplemod.registry.EntityRegistry;
 import com.example.examplemod.registry.ItemRegistry;
+import com.example.examplemod.registry.PotionRegistry;
 import com.example.examplemod.world.ExampleWorldGen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -18,8 +19,11 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayConnectionEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 
@@ -40,7 +44,10 @@ public class ExampleMod implements ModInitializer
                 BiomeSelectors.foundInOverworld(),
                 GenerationStep.Decoration.UNDERGROUND_ORES,
                 ExampleWorldGen.NEW_DIRT_ORE_PLACED);
+
+        registerBrewingRecipes();
     }
+
     private static void registerEvents() {
         // Player login
         ServerEntityCombatEvents.AFTER_KILLED_OTHER_ENTITY.register((world, entity, killedEntity) -> {});
@@ -54,6 +61,21 @@ public class ExampleMod implements ModInitializer
         // Block break event
         PlayerBlockBreakEvents.AFTER.register((world, player, pos, state, blockEntity) -> {
             CommonEvents.onBlockBreak(world, pos, state, player);
+        });
+    }
+
+    private static void registerBrewingRecipes() {
+        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> {
+            builder.addMix(
+                    Potions.AWKWARD,
+                    Items.GLISTERING_MELON_SLICE,
+                    PotionRegistry.EXAMPLE_POTION.asHolder()
+            );
+            builder.addMix(
+                    PotionRegistry.EXAMPLE_POTION.asHolder(),
+                    Items.GLOWSTONE_DUST,
+                    PotionRegistry.EXAMPLE_POTION_STRONG.asHolder()
+            );
         });
     }
 }

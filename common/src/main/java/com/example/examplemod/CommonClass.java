@@ -11,6 +11,8 @@ public class CommonClass
     public static void init() {
         ArmourMaterialRegistry.init();
         ParticleRegistry.init();
+        EffectRegistry.init();
+        PotionRegistry.init();
         SoundRegistry.init();
         ItemRegistry.init();
         BlockRegistry.init();

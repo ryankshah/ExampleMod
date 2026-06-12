@@ -47,6 +47,18 @@ public class ExampleLangProvider extends LanguageProvider {
         add("key.examplemod.example_action", "Example Action");
         add("key.categories.examplemod", "Example Mod");
 
+        add("effect.examplemod.example_effect", "Vitality");
+
+        add("item.minecraft.potion.effect.example", "Potion of Vitality");
+        add("item.minecraft.splash_potion.effect.example", "Splash Potion of Vitality");
+        add("item.minecraft.lingering_potion.effect.example", "Lingering Potion of Vitality");
+        add("item.minecraft.tipped_arrow.effect.example", "Arrow of Vitality");
+
+        add("item.minecraft.potion.effect.strong_example", "Potion of Vitality II");
+        add("item.minecraft.splash_potion.effect.strong_example", "Splash Potion of Vitality II");
+        add("item.minecraft.lingering_potion.effect.strong_example", "Lingering Potion of Vitality II");
+        add("item.minecraft.tipped_arrow.effect.strong_example", "Arrow of Vitality II");
+
         add(EntityRegistry.EXAMPLE_ENTITY.get(), "Example Entity");
         add(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get(), "Example Entity Spawn Egg");
     }
