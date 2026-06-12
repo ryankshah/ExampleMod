@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import com.example.examplemod.enchantment.EnchantmentEffectRegistry;
 import com.example.examplemod.network.PacketRegistration;
 import com.example.examplemod.platform.Services;
 import com.example.examplemod.registry.*;
@@ -10,6 +11,7 @@ public class CommonClass
 {
     public static void init() {
         ArmourMaterialRegistry.init();
+        EnchantmentEffectRegistry.init();
         ParticleRegistry.init();
         EffectRegistry.init();
         PotionRegistry.init();

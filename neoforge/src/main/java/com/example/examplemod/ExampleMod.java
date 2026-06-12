@@ -79,7 +79,8 @@ public class ExampleMod
                             new RegistrySetBuilder()
                                     .add(Registries.CONFIGURED_FEATURE, ExampleWorldGenProvider::configuredFeatures)
                                     .add(Registries.PLACED_FEATURE,     ExampleWorldGenProvider::placedFeatures)
-                                    .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ExampleWorldGenProvider::biomeModifiers),
+                                    .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ExampleWorldGenProvider::biomeModifiers)
+                                    .add(Registries.ENCHANTMENT, ExampleEnchantmentBootstrap::bootstrap),
                             Set.of(Constants.MOD_ID)));
         } catch (RuntimeException e) {
             Constants.LOG.error("Failed to generate data", e);

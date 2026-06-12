@@ -9,6 +9,7 @@
   "block.examplemod.new_dirt": "New Dirt",
   "container.examplemod.example": "Example Container",
   "effect.examplemod.example_effect": "Vitality",
+  "enchantment.examplemod.healing_strike": "Healing Strike",
   "entity.examplemod.example_entity": "Example Entity",
   "item.examplemod.example_axe": "Example Axe",
   "item.examplemod.example_boots": "Example Boots",

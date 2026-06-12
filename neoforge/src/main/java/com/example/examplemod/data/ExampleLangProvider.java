@@ -59,6 +59,8 @@ public class ExampleLangProvider extends LanguageProvider {
         add("item.minecraft.lingering_potion.effect.strong_example", "Lingering Potion of Vitality II");
         add("item.minecraft.tipped_arrow.effect.strong_example", "Arrow of Vitality II");
 
+        add("enchantment.examplemod.healing_strike", "Healing Strike");
+
         add(EntityRegistry.EXAMPLE_ENTITY.get(), "Example Entity");
         add(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get(), "Example Entity Spawn Egg");
     }
