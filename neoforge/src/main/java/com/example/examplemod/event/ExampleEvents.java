@@ -1,6 +1,7 @@
 package com.example.examplemod.event;
 
 import com.example.examplemod.Constants;
+import com.example.examplemod.command.ExampleCommands;
 import com.example.examplemod.entity.ExampleEntity;
 import com.example.examplemod.registry.EntityRegistry;
 import com.example.examplemod.registry.PotionRegistry;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.brewing.RegisterBrewingRecipesEvent;
 import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
 import net.neoforged.neoforge.event.entity.living.LivingIncomingDamageEvent;
@@ -60,5 +62,10 @@ public class ExampleEvents {
                 Items.GLOWSTONE_DUST,
                 PotionRegistry.EXAMPLE_POTION_STRONG.asHolder()
         );
+    }
+
+    @SubscribeEvent
+    public static void registerCommands(RegisterCommandsEvent event) {
+        ExampleCommands.register(event.getDispatcher(), event.getBuildContext());
     }
 }

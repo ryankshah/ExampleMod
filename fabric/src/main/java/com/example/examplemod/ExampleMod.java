@@ -1,5 +1,6 @@
 package com.example.examplemod;
 
+import com.example.examplemod.command.ExampleCommands;
 import com.example.examplemod.config.ExampleConfig;
 import com.example.examplemod.config.FabricExampleConfig;
 import com.example.examplemod.entity.ExampleEntity;
@@ -11,6 +12,7 @@ import com.example.examplemod.world.ExampleWorldGen;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.entity.event.v1.ServerEntityCombatEvents;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
@@ -46,6 +48,9 @@ public class ExampleMod implements ModInitializer
                 ExampleWorldGen.NEW_DIRT_ORE_PLACED);
 
         registerBrewingRecipes();
+
+        CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) ->
+                ExampleCommands.register(dispatcher, registryAccess));
     }
 
     private static void registerEvents() {
