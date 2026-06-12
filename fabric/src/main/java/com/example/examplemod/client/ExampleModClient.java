@@ -1,11 +1,14 @@
 package com.example.examplemod.client;
 
 import com.example.examplemod.client.particle.SparkleParticle;
+import com.example.examplemod.client.screen.ExampleScreen;
 import com.example.examplemod.registry.EntityRegistry;
+import com.example.examplemod.registry.MenuRegistry;
 import com.example.examplemod.registry.ParticleRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.minecraft.client.gui.screens.MenuScreens;
 
 public class ExampleModClient implements ClientModInitializer {
     @Override
@@ -15,5 +18,7 @@ public class ExampleModClient implements ClientModInitializer {
 
         ParticleFactoryRegistry.getInstance().register(
                 ParticleRegistry.SPARKLE.get(), SparkleParticle.Provider::new);
+
+        MenuScreens.register(MenuRegistry.EXAMPLE_MENU.get(), ExampleScreen::new);
     }
 }

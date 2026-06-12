@@ -1,26 +1,59 @@
 package com.example.examplemod.blockentity;
 
+import com.example.examplemod.menu.ExampleMenu;
 import com.example.examplemod.registry.BlockEntityRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-public class ExampleBlockEntity extends BlockEntity {
+public class ExampleBlockEntity extends BaseContainerBlockEntity {
 
+    private NonNullList<ItemStack> items = NonNullList.withSize(9, ItemStack.EMPTY);
     private int secondsAlive = 0;
 
     public ExampleBlockEntity(BlockPos pos, BlockState state) {
         super(BlockEntityRegistry.EXAMPLE.get(), pos, state);
+    }
+
+    @Override
+    public int getContainerSize() {
+        return 9;
+    }
+
+    @Override
+    protected NonNullList<ItemStack> getItems() {
+        return items;
+    }
+
+    @Override
+    protected void setItems(NonNullList<ItemStack> items) {
+        this.items = items;
+    }
+
+    @Override
+    protected Component getDefaultName() {
+        return Component.translatable("container.examplemod.example");
+    }
+
+    @Override
+    protected AbstractContainerMenu createMenu(int syncId, Inventory inventory) {
+        return new ExampleMenu(syncId, inventory, this);
     }
 
     public int getSecondsAlive() {

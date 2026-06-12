@@ -9,7 +9,10 @@ import commonnetwork.api.Dispatcher;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -47,9 +50,23 @@ public class ExampleBlockEntityBlock extends BaseEntityBlock {
     }
 
     @Override
+    public void onRemove(BlockState state, Level level, BlockPos pos,
+                         BlockState newState, boolean movedByPiston) {
+        if (!state.is(newState.getBlock())) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof Container container) {
+                Containers.dropContents(level, pos, container);
+                level.updateNeighbourForOutputSignal(pos, this);
+            }
+        }
+        super.onRemove(state, level, pos, newState, movedByPiston);
+    }
+
+    @Override
     protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
-        if(!pPlayer.level().isClientSide) {
-            Dispatcher.sendToClient(new ExampleS2CPacket(42, "hello"), (ServerPlayer) pPlayer);
+        if (!pLevel.isClientSide() && pPlayer instanceof ServerPlayer serverPlayer) {
+            BlockEntity be = pLevel.getBlockEntity(pPos);
+            Dispatcher.sendToClient(new ExampleS2CPacket(42, "hello"), serverPlayer);
             if (pLevel instanceof ServerLevel serverLevel) {
                 serverLevel.sendParticles(
                         ParticleRegistry.SPARKLE.get(),
@@ -60,6 +77,9 @@ public class ExampleBlockEntityBlock extends BaseEntityBlock {
                         0.3,     // spread Z
                         0.05     // speed
                 );
+            }
+            if (be instanceof MenuProvider menuProvider) {
+                serverPlayer.openMenu(menuProvider);
             }
         }
         return super.useWithoutItem(pState, pLevel, pPos, pPlayer, pHitResult);

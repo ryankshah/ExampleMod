@@ -7,6 +7,7 @@
   "advancements.examplemod.root.title": "Example Mod",
   "block.examplemod.example_be_block": "Example Block Entity Block",
   "block.examplemod.new_dirt": "New Dirt",
+  "container.examplemod.example": "Example Container",
   "entity.examplemod.example_entity": "Example Entity",
   "item.examplemod.example_axe": "Example Axe",
   "item.examplemod.example_boots": "Example Boots",

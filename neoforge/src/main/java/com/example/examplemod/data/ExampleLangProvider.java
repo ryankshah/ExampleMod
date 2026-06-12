@@ -42,6 +42,7 @@ public class ExampleLangProvider extends LanguageProvider {
         add("advancements.examplemod.place_new_dirt.title",     "Breaking Ground");
         add("advancements.examplemod.place_new_dirt.description", "Place a New Dirt block.");
 
+        add("container.examplemod.example", "Example Container");
 
         add(EntityRegistry.EXAMPLE_ENTITY.get(), "Example Entity");
         add(ItemRegistry.EXAMPLE_ENTITY_SPAWN_EGG.get(), "Example Entity Spawn Egg");

@@ -15,6 +15,7 @@ public class CommonClass
         ItemRegistry.init();
         BlockRegistry.init();
         BlockEntityRegistry.init();
+        MenuRegistry.init();
         CreativeTabRegistry.init();
         EntityRegistry.init();
         PacketRegistration.init();
